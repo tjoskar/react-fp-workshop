@@ -1,0 +1,30 @@
+{
+  "name": "react-fp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "hyperscript-helpers": "^3.0.3",
+    "react": "^16.1.1",
+    "react-dom": "^16.1.1",
+    "react-hyperscript": "^3.0.0",
+    "react-router-dom": "^4.2.2",
+    "simple-react-router": "0.0.14"
+  },
+  "devDependencies": {
+    "@types/react": "^16.0.25",
+    "@types/react-dom": "^16.0.3",
+    "rollup": "^0.51.7",
+    "rollup-plugin-commonjs": "^8.2.6",
+    "rollup-plugin-node-globals": "^1.1.0",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-replace": "^2.0.0",
+    "typescript": "^2.6.1",
+    "webpack": "^3.8.1"
+  }
+}

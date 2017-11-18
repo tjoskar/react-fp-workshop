@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "module": "ESNext" /* 'es2015', or 'ESNext'. */,
+    "allowJs": true,
+    "checkJs": true /* Report errors in .js files. */,
+    "outDir": "./dist",
+    "removeComments": false,
+    "noEmit": false,
+    "strict": false,
+    "noImplicitAny": false,
+    "noUnusedLocals": true
+  }
+}
