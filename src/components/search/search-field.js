@@ -1,7 +1,7 @@
 // @ts-check
 import { create } from '../../dom.js';
 import { connect } from '../../../vendors.bundle.js';
-import { updateSeachField } from '../../actions/search.actions.js';
+import { updateSeachField } from '../../store/search/search.actions.js';
 
 export function SearchFieldView({ value, onChange }) {
   return create.input('.form-control', { type: 'search', onChange, value });

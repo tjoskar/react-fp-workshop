@@ -5,9 +5,12 @@ import { Provider, connect } from 'react-redux';
 declare const h: any;
 declare const hyperscriptHelpers: any;
 declare const createStore: any;
+declare const applyMiddleware: any;
 declare const Router: any;
 declare const Route: any;
 declare const Link: any;
+declare const combineEpics: any;
+declare const createEpicMiddleware: any;
 
 export {
   React,
@@ -18,6 +21,9 @@ export {
   Route,
   Link,
   createStore,
+  applyMiddleware,
   Provider,
-  connect
+  connect,
+  combineEpics,
+  createEpicMiddleware
 };

@@ -11,7 +11,13 @@ export default {
   plugins: [
     cjs({
       exclude: 'node_modules/process-es6/**',
-      include: ['node_modules/**']
+      include: ['node_modules/**'],
+      namedExports: {
+        'node_modules/redux-observable/lib/cjs/index.js': [
+          'combineEpics',
+          'createEpicMiddleware'
+        ]
+      }
     }),
     replace({ 'process.env.NODE_ENV': JSON.stringify('development') }),
     resolve({
