@@ -9,12 +9,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/react-redux": "^5.0.13",
     "hyperscript-helpers": "^3.0.3",
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
     "react-hyperscript": "^3.0.0",
+    "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
-    "simple-react-router": "0.0.14"
+    "redux": "^3.7.2"
   },
   "devDependencies": {
     "@types/react": "^16.0.25",

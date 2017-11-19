@@ -1,9 +1,26 @@
 // @ts-check
-// @ts-ignore
-import { ReactDOM, Router, Route, Link } from '../vendors.bundle.js';
+import {
+  ReactDOM,
+  Router,
+  Route,
+  Link,
+  React,
+  createStore,
+  Provider
+} from '../vendors.bundle.js';
 import { create, e } from './dom.js';
+import { Search } from './components/search/search.js';
+import { searchReducer } from './store/search.reducer.js';
 
-const { div, ul, li, h1, p } = create;
+const { div, ul, li, h1, h3, p, img, button } = create;
+
+function reducer(state = {}, action) {
+  return {
+    search: searchReducer(state.search, action)
+  };
+}
+
+const store = createStore(reducer);
 
 function Hello() {
   return [
@@ -13,11 +30,29 @@ function Hello() {
 }
 
 function Shows({ shows }) {
-  return shows.map(i => p({ key: i }, `i: ${i}`));
+  return shows.map(i =>
+    e(Show, {
+      show: {
+        poster: 'http://static.tvmaze.com/uploads/images/medium_portrait/128/320837.jpg',
+        name: 'Dexter',
+        summary: 'Something, something'
+      },
+      unsubscribe: () => console.log('Hej'),
+      key: i
+    })
+  );
 }
 
-function Hello2() {
-  return create.div(`Hello 2`);
+function Show({ show, unsubscribe }) {
+  return div({}, [
+    img('.img-rounded', { src: show.poster }),
+    div({}, [
+      h3({}, show.name),
+      p({}, `Next episode:`),
+      div({}, show.summary),
+      button('.btn .btn-danger', { onClick: unsubscribe }, 'Unsubscribe')
+    ])
+  ]);
 }
 
 function Hello3() {
@@ -28,19 +63,24 @@ const BasicExample = () =>
   e(
     Router,
     undefined,
-    div('.container', {}, [
-      ul('.nav .nav-pills', {}, [
-        li('.nav-item', {}, e(Link, { className: 'nav-link', to: '/' }, 'Hello')),
-        li('.nav-item', {}, e(Link, { className: 'nav-link', to: '/hello2' }, 'Hello2')),
-        li('.nav-item', {}, e(Link, { className: 'nav-link', to: '/hello3' }, 'Hello3'))
-      ]),
-      e(Route, { exact: true, path: '/', component: Hello }),
-      e(Route, { path: '/hello2', component: Hello2 }),
-      e(Route, { path: '/hello3', component: Hello3 })
-    ])
+    e(
+      Provider,
+      { store },
+      div('.container', {}, [
+        ul('.nav .nav-pills', {}, [
+          li('.nav-item', {}, e(Link, { className: 'nav-link', to: '/' }, 'Hello')),
+          li(
+            '.nav-item',
+            {},
+            e(Link, { className: 'nav-link', to: '/search' }, 'Search')
+          ),
+          li('.nav-item', {}, e(Link, { className: 'nav-link', to: '/hello3' }, 'Hello3'))
+        ]),
+        e(Route, { exact: true, path: '/', component: Hello }),
+        e(Route, { path: '/search', component: Search }),
+        e(Route, { path: '/hello3', component: Hello3 })
+      ])
+    )
   );
 
-ReactDOM.render(
-  e(BasicExample, { toWhat: 'World' }, null),
-  document.getElementById('root')
-);
+ReactDOM.render(e(BasicExample), document.getElementById('root'));

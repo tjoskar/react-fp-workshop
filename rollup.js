@@ -17,8 +17,8 @@ export default {
     resolve({
       browser: false,
       main: true,
-      module: true,
-      jsnext: true,
+      module: false,
+      jsnext: false,
       preferBuiltins: false
     })
   ],
