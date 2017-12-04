@@ -3,6 +3,7 @@ import { branch, renderComponent, pure } from 'recompose'
 import { compose } from 'ramda'
 import { connect } from 'react-redux'
 import { subscribeToShow } from '../../store/shows/show.actions'
+import { ShowLoadingTextIfLoading } from './loading'
 
 function SearchResultsView({ results, subscribe }) {
   return div(
@@ -32,11 +33,13 @@ const mapDispatchToProps = dispatch => ({
 const mapStateToProps = state => ({
   results: state.search.searchResult.filter(
     show => !state.shows.shows.find(s => s.id === show.id)
-  )
+  ),
+  loading: state.search.loading
 })
 
 export const SearchResults = compose(
   connect(mapStateToProps, mapDispatchToProps),
   pure,
+  ShowLoadingTextIfLoading,
   branch(emptySearchResult, renderComponent(NoResult))
 )(SearchResultsView)

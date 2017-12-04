@@ -11,7 +11,7 @@ export const searchEpic = action$ =>
   action$
     .filter(action => action.type === UPDATE_SEARCH_FIELD)
     .map(action => action.value)
-    .filter(value => value.length > 2)
+    .filter(isSearchTermLongerThan2)
     .debounceTime(1000)
     .switchMap(value =>
       Observable.ajax({
@@ -23,6 +23,20 @@ export const searchEpic = action$ =>
     .map(response => response.response)
     .map(mapShows)
     .map(updateSeachResult)
+
+export const emptySearchResultEpic = action$ =>
+  action$
+    .filter(action => action.type === UPDATE_SEARCH_FIELD)
+    .map(action => action.value)
+    .filter(value => !isSearchTermLongerThan2(value))
+    .map(() => [])
+    .map(updateSeachResult)
+
+const isSearchTermLongerThan2 = isSearchTermLongerThan(2)
+
+function isSearchTermLongerThan(n: number) {
+  return (term: string) => term.length > n
+}
 
 function mapShows(tvMazeShows) {
   return tvMazeShows.map(show => mapShow(show.show))

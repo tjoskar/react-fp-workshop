@@ -1,9 +1,13 @@
 import { createStore, applyMiddleware } from 'redux'
 import { combineEpics, createEpicMiddleware } from 'redux-observable'
-import { searchReducer, searchEpic } from './search'
+import { searchReducer, searchEpic, emptySearchResultEpic } from './search'
 import { showReducer, updateEpisodesEpic } from './shows'
 
-export const rootEpic = combineEpics(searchEpic, updateEpisodesEpic)
+export const rootEpic = combineEpics(
+  searchEpic,
+  updateEpisodesEpic,
+  emptySearchResultEpic
+)
 
 const epicMiddleware = createEpicMiddleware(rootEpic)
 
