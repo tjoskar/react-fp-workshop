@@ -1,15 +1,13 @@
-// @ts-check
-import { create } from '../../dom.js';
-const { div, ul, li, h1, h3, p, img, button } = create;
+import { div, img, h3, p, button } from 'react-hyperscript-helpers'
 
 export function Show({ show, onClick }) {
-  return div({}, [
+  return div([
     img('.img-rounded', { src: show.poster }),
-    div({}, [
-      h3({}, show.name),
-      p({}, `Next episode:`),
+    div([
+      h3(show.name),
+      p(`Next episode:`),
       div({ dangerouslySetInnerHTML: { __html: show.summary } }),
       button('.btn .btn-danger', { onClick }, 'Unsubscribe')
     ])
-  ]);
+  ])
 }

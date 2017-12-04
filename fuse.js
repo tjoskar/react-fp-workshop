@@ -1,0 +1,18 @@
+const { FuseBox } = require('fuse-box')
+const fuse = FuseBox.init({
+  homeDir: 'src',
+  output: 'dist/$name.js'
+})
+fuse
+  .bundle('app')
+  .sourceMaps(true)
+  .target('browser')
+  .instructions(`>boot.ts`)
+  .watch()
+
+fuse.dev({
+  port: 8080,
+  root: '.'
+})
+
+fuse.run()

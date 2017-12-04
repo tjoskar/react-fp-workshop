@@ -9,12 +9,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@reactivex/rxjs": "^5.5.2",
-    "@types/react-redux": "^5.0.13",
-    "hyperscript-helpers": "^3.0.3",
+    "ramda": "^0.25.0",
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
-    "react-hyperscript": "^3.0.0",
+    "react-hyperscript-helpers": "^1.2.0",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
@@ -22,14 +20,11 @@
     "rxjs": "^5.5.2"
   },
   "devDependencies": {
+    "@types/ramda": "^0.25.6",
     "@types/react": "^16.0.25",
     "@types/react-dom": "^16.0.3",
-    "rollup": "^0.51.7",
-    "rollup-plugin-commonjs": "^8.2.6",
-    "rollup-plugin-node-globals": "^1.1.0",
-    "rollup-plugin-node-resolve": "^3.0.0",
-    "rollup-plugin-replace": "^2.0.0",
-    "typescript": "^2.6.1",
-    "webpack": "^3.8.1"
+    "@types/react-redux": "^5.0.13",
+    "fuse-box": "^2.5.0-beta.1",
+    "typescript": "^2.6.1"
   }
 }

@@ -1,5 +1,11 @@
-// @ts-check
-import { UPDATE_SEACH_FIELD, updateSeachResult } from './search.actions.js';
+import 'rxjs/add/observable/dom/ajax'
+import 'rxjs/add/operator/filter'
+import 'rxjs/add/operator/map'
+import 'rxjs/add/operator/switchMap'
+import 'rxjs/add/operator/debounceTime'
+import { Observable } from 'rxjs/Observable'
+import { path } from 'ramda'
+import { UPDATE_SEACH_FIELD, updateSeachResult } from './search.actions'
 
 export const searchEpic = action$ =>
   action$
@@ -8,7 +14,7 @@ export const searchEpic = action$ =>
     .filter(value => value.length > 2)
     .debounceTime(1000)
     .switchMap(value =>
-      window.Rx.Observable.ajax({
+      Observable.ajax({
         url: `http://api.tvmaze.com/search/shows?q=${value}`,
         method: 'GET',
         crossDomain: true
@@ -16,17 +22,17 @@ export const searchEpic = action$ =>
     )
     .map(response => response.response)
     .map(mapShows)
-    .map(updateSeachResult);
+    .map(updateSeachResult)
 
 function mapShows(tvMazeShows) {
-  return tvMazeShows.map(show => mapShow(show.show));
+  return tvMazeShows.map(show => mapShow(show.show))
 }
 
 function mapShow(tvMazeShow) {
   return {
     id: tvMazeShow.id,
     title: tvMazeShow.name,
-    poster: window.R.path(['image', 'medium'], tvMazeShow),
+    poster: path(['image', 'medium'], tvMazeShow),
     summary: tvMazeShow.summary
-  };
+  }
 }

@@ -1,10 +1,11 @@
 {
   "compilerOptions": {
     "target": "ES2017",
-    "module": "ESNext" /* 'es2015', or 'ESNext'. */,
-    "allowJs": false,
-    "checkJs": false /* Report errors in .js files. */,
+    "module": "ESNext",
+    "allowJs": true,
+    "checkJs": true,
     "outDir": "./dist",
+    "moduleResolution": "node",
     "removeComments": false,
     "noEmit": false,
     "strict": false,
