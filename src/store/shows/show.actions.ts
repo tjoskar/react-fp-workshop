@@ -12,7 +12,7 @@ export const unsubscribeToShow = id => ({
   id
 })
 
-export const updateEpisodes = (showsId, episodes) => ({
+export const updateEpisodes = showsId => episodes => ({
   type: UPDATE_EPISODES,
   showsId,
   episodes
