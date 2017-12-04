@@ -15,6 +15,7 @@
     "react-hyperscript-helpers": "^1.2.0",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
+    "recompose": "^0.26.0",
     "redux": "^3.7.2",
     "redux-observable": "^0.17.0",
     "rxjs": "^5.5.2"
@@ -24,6 +25,7 @@
     "@types/react": "^16.0.25",
     "@types/react-dom": "^16.0.3",
     "@types/react-redux": "^5.0.13",
+    "@types/recompose": "^0.24.3",
     "fuse-box": "^2.5.0-beta.1",
     "typescript": "^2.6.1"
   }
