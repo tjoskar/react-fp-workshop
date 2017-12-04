@@ -13,7 +13,7 @@ const App = () =>
     h(Provider, { store }, [
       div('.container', [
         ul('.nav .nav-pills', [
-          li('.nav-item', [h(Link, { className: 'nav-link', to: '/' }, 'Hello')]),
+          li('.nav-item', [h(Link, { className: 'nav-link', to: '/' }, 'Upcoming')]),
           li('.nav-item', [h(Link, { className: 'nav-link', to: '/search' }, 'Search')])
         ]),
         h(Route, { exact: true, path: '/', component: UpcomingShows }),
