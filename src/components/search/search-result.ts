@@ -1,5 +1,5 @@
 import { figure, img, figcaption, h, h3, div } from 'react-hyperscript-helpers'
-import { branch, renderComponent } from 'recompose'
+import { branch, renderComponent, pure } from 'recompose'
 import { compose } from 'ramda'
 import { connect } from 'react-redux'
 import { subscribeToShow } from '../../store/shows/show.actions'
@@ -37,5 +37,6 @@ const mapStateToProps = state => ({
 
 export const SearchResults = compose(
   connect(mapStateToProps, mapDispatchToProps),
+  pure,
   branch(emptySearchResult, renderComponent(NoResult))
 )(SearchResultsView)
