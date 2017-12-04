@@ -104,11 +104,13 @@ Criteria:
 - Wait for 500ms before making the search (*tips: debounceTime*)
 - Cancel the ongoing ajax request if the user wants to make a new one (*tips: switchMap*). You can check in the dev tools to see if the ajax request is canceled or not.
 
+*tips: Check in: [DebounceTime](https://www.learnrxjs.io/operators/filtering/debouncetime.html), [SwitchMap](https://www.learnrxjs.io/operators/transformation/switchmap.html), [MergeMap](https://www.learnrxjs.io/operators/transformation/mergemap.html), [Filter](https://www.learnrxjs.io/operators/filtering/filter.html), [Map](https://www.learnrxjs.io/operators/transformation/map.html), [MapTo](https://www.learnrxjs.io/operators/transformation/mapto.html)*
+
 ## Chapter 2 - No subscription
 
 If we unsubscribe for all shows, it is pretty empty on the first page. Create a new component and show that one when the user don't have subscribed to any series. 
 
-Use [recompose branch](https://github.com/acdlite/recompose/blob/master/docs/API.md#branch) for this. You can take a look how it is done in `search-result.ts`
+Use [recomposes branch](https://github.com/acdlite/recompose/blob/master/docs/API.md#branch) for this. You can take a look how it is done in `search-result.ts`
 
 ## Chapter 3 - Next episode
 
@@ -149,6 +151,8 @@ I'm using [`jest`](https://facebook.github.io/jest/) and you can run the test ca
 ## Chapter 7 (Bonus) - Either
 
 Take a look at `src/either.ts`. How could you rewrite the code to use the [Either monad](https://monet.github.io/monet.js/#either) instead?
+
+*Tips: you can run the code with: `npx ts-node src/either.ts`*
 
 ## Chapter 8 (Bonus) - Validation
 
