@@ -1,4 +1,4 @@
-import { UPDATE_SEACH_FIELD, UPDATE_SEACH_RESULT } from './search.actions'
+import { UPDATE_SEARCH_FIELD, UPDATE_SEARCH_RESULT } from './search.actions'
 
 const initState = {
   value: '',
@@ -7,9 +7,9 @@ const initState = {
 
 export function searchReducer(state = initState, action) {
   switch (action.type) {
-    case UPDATE_SEACH_FIELD:
+    case UPDATE_SEARCH_FIELD:
       return { ...state, value: action.value }
-    case UPDATE_SEACH_RESULT:
+    case UPDATE_SEARCH_RESULT:
       return { ...state, searchResult: action.shows }
     default:
       return state

@@ -5,11 +5,11 @@ import 'rxjs/add/operator/switchMap'
 import 'rxjs/add/operator/debounceTime'
 import { Observable } from 'rxjs/Observable'
 import { path } from 'ramda'
-import { UPDATE_SEACH_FIELD, updateSeachResult } from './search.actions'
+import { UPDATE_SEARCH_FIELD, updateSeachResult } from './search.actions'
 
 export const searchEpic = action$ =>
   action$
-    .filter(action => action.type === UPDATE_SEACH_FIELD)
+    .filter(action => action.type === UPDATE_SEARCH_FIELD)
     .map(action => action.value)
     .filter(value => value.length > 2)
     .debounceTime(1000)
