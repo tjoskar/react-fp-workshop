@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs/Observable'
 import { ajax } from 'rxjs/observable/dom/ajax'
-import { map, debounceTime, filter, switchMap, retry } from 'rxjs/operators'
+import { map, debounceTime, filter, switchMap } from 'rxjs/operators'
 import { path } from 'ramda'
 import { UPDATE_SEARCH_FIELD, updateSeachResult } from './search.actions'
 
@@ -17,8 +17,7 @@ export const searchEpic = (action$: Observable<UpdateSearchFieldAction>) =>
     debounceTime(1000),
     switchMap(searchForShow),
     map(mapShows),
-    map(updateSeachResult),
-    retry()
+    map(updateSeachResult)
   )
 
 export const emptySearchResultEpic = (action$: Observable<UpdateSearchFieldAction>) =>
