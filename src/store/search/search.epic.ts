@@ -39,7 +39,7 @@ const searchForShow = (seatchTerm: string) =>
 
 const isSearchTermLongerThan2 = isSearchTermLongerThan(2)
 
-function isSearchTermLongerThan(n: number) {
+export function isSearchTermLongerThan(n: number) {
   return (term: string) => term.length > n
 }
 
