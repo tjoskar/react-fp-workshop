@@ -1,8 +1,12 @@
 {
   "name": "react-fp",
   "version": "1.0.0",
-  "description": "",
+  "description": "🌀",
   "main": "index.js",
+  "repository": {
+    "url": "https://github.com/tjoskar/react-fp-workshop.git",
+    "type": "git"
+  },
   "scripts": {
     "test": "jest --watch"
   },
@@ -40,6 +44,12 @@
       "^.+\\.tsx?$": "ts-jest"
     },
     "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
-    "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json"]
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json"
+    ]
   }
 }
