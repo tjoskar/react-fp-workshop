@@ -1,6 +1,7 @@
 import 'rxjs/add/observable/dom/ajax'
 import 'rxjs/add/operator/filter'
 import 'rxjs/add/operator/map'
+import 'rxjs/add/operator/retry'
 import 'rxjs/add/operator/switchMap'
 import 'rxjs/add/operator/debounceTime'
 import { Observable } from 'rxjs/Observable'
@@ -23,6 +24,7 @@ export const searchEpic = action$ =>
     .map(response => response.response)
     .map(mapShows)
     .map(updateSeachResult)
+    .retry()
 
 export const emptySearchResultEpic = action$ =>
   action$
