@@ -46,7 +46,7 @@ All you need is a typescript aware editor, like [vscode](https://code.visualstud
 - Option 1: Check out the branch 'JavaScript': `git checkout javascript`
 - Option 2: Changing extension on all ts files to js.
 
-Now you need a grate js editor and you are good to go.
+Now you need a great js editor and you are good to go.
 
 OBS! Chapter 6, 7 and 8 will only work with typescript
 
@@ -100,21 +100,21 @@ Navigate to `http://localhost:8080` and click on search. Search for your favorit
 Exercise: Implement the logic for the search in `search.epic.ts`
 
 Criteria:
-- Make sure to not search if the the search term is less than 3 character. (*tips: filter*)
+- Make sure to not search if the search term is less than 3 characters. (*tips: filter*)
 - Wait for 500ms before making the search (*tips: debounceTime*)
-- Cancel the ongoing ajax request if the user wants to make a new one (*tips: switchMap*). You can check in the dev tools to see if the ajax request is canceled or not.
+- Cancel the ongoing ajax request if the user wants to make a new one (*tips: switchMap*). You can check in the dev tools to see if the ajax request is cancelled or not.
 
 *tips: Check in: [DebounceTime](https://www.learnrxjs.io/operators/filtering/debouncetime.html), [SwitchMap](https://www.learnrxjs.io/operators/transformation/switchmap.html), [MergeMap](https://www.learnrxjs.io/operators/transformation/mergemap.html), [Filter](https://www.learnrxjs.io/operators/filtering/filter.html), [Map](https://www.learnrxjs.io/operators/transformation/map.html), [MapTo](https://www.learnrxjs.io/operators/transformation/mapto.html)*
 
 ## Chapter 2 - No subscription
 
-If we unsubscribe for all shows, it is pretty empty on the first page. Create a new component and show that one when the user don't have subscribed to any series. 
+If we unsubscribe for all shows, it is pretty empty on the first page. Create a new component and show that one when the user doesn’t  have subscribed to any series.
 
 Use [recomposes branch](https://github.com/acdlite/recompose/blob/master/docs/API.md#branch) for this. You can take a look how it is done in `search-result.ts`
 
 ## Chapter 3 - Next episode
 
-Subscribe on a ongoing show. Did you notice that "Next episode:" is always empty?
+Subscribe on an ongoing show. Did you notice that "Next episode:" is always empty?
 
 Exercise: Calculate the next episode and print that one. Put the logic in `components/shows/show.ts` for simplicity.
 
@@ -123,7 +123,7 @@ Criteria:
 
 ## Chapter 4 - Loading
 
-It can sometimes take a wile before we get a search result. 
+It can sometimes take a while before we get a search result.
 
 Exercise: Add a lodging text to inform the user that we are loading.
 
@@ -136,7 +136,7 @@ Criteria:
 
 Go to the search page. Go offline (you can simulate this in your browsers dev tools). Search for your favorite tv show. 
 
-Did you find your show? Off corse not, we are offline. Okay, lets go online again and search again. – What!? Still no result?
+Did you find your show? Of course not, we are offline. Okay, let's go online again and search again. – What!? Still no result?
 
 Exercise: Handle ajax failure. 
 
