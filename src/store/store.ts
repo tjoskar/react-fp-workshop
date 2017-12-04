@@ -3,7 +3,7 @@ import { combineEpics, createEpicMiddleware } from 'redux-observable'
 import { searchReducer, searchEpic, emptySearchResultEpic } from './search'
 import { showReducer, updateEpisodesEpic } from './shows'
 
-export const rootEpic = combineEpics(
+export const rootEpic = combineEpics<any>(
   searchEpic,
   updateEpisodesEpic,
   emptySearchResultEpic
