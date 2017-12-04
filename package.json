@@ -29,6 +29,7 @@
     "@types/recompose": "^0.24.3",
     "express-history-api-fallback": "^2.2.1",
     "fuse-box": "^2.5.0-beta.1",
+    "ts-node": "^3.3.0",
     "typescript": "^2.6.1"
   }
 }
