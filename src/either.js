@@ -1,13 +1,5 @@
 // import { Either } from 'monet'
 
-type User = typeof userInput
-
-const userInput = {
-  username: 'Username',
-  email: 'something',
-  password: ''
-}
-
 function validate(user: User) {
   if (user.username && user.username.length > 2) {
     if (user.email && user.email.includes('@')) {

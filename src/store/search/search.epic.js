@@ -1,26 +1,9 @@
-import { Observable } from 'rxjs/Observable'
 import { ajax } from 'rxjs/observable/dom/ajax'
 import { map, filter, tap } from 'rxjs/operators'
 import { path } from 'ramda'
 import { UPDATE_SEARCH_FIELD, updateSeachResult } from './search.actions'
 
-type UpdateSearchFieldAction = {
-  type: string
-  value: string
-}
-
-type TvMazeShow = {
-  show: {
-    id: number
-    name: string
-    image?: {
-      medium?: string
-    }
-    summary: string
-  }
-}
-
-export const searchEpic = (action$: Observable<UpdateSearchFieldAction>) =>
+export const searchEpic = action$ =>
   action$.pipe(
     filter(isUpdateSearchFieldAction),
     tap(action => console.log(action)),
@@ -32,7 +15,7 @@ export const searchEpic = (action$: Observable<UpdateSearchFieldAction>) =>
     map(updateSeachResult)
   )
 
-export const emptySearchResultEpic = (action$: Observable<UpdateSearchFieldAction>) =>
+export const emptySearchResultEpic = action$ =>
   action$.pipe(
     filter(isUpdateSearchFieldAction),
     map(action => action.value),
@@ -41,7 +24,7 @@ export const emptySearchResultEpic = (action$: Observable<UpdateSearchFieldActio
     map(updateSeachResult)
   )
 
-export const searchForShow = (seatchTerm: string): Observable<TvMazeShow[]> =>
+export const searchForShow = seatchTerm =>
   ajax({
     url: `http://api.tvmaze.com/search/shows?q=${seatchTerm}`,
     method: 'GET',
@@ -50,19 +33,19 @@ export const searchForShow = (seatchTerm: string): Observable<TvMazeShow[]> =>
 
 const isSearchTermLongerThan2 = isSearchTermLongerThan(2)
 
-export function isSearchTermLongerThan(n: number) {
-  return (term: string) => term.length > n
+export function isSearchTermLongerThan(n) {
+  return term => term.length > n
 }
 
-function isUpdateSearchFieldAction(action: UpdateSearchFieldAction) {
+function isUpdateSearchFieldAction(action) {
   return action.type === UPDATE_SEARCH_FIELD
 }
 
-export function mapShows(tvMazeShows: TvMazeShow[]) {
+export function mapShows(tvMazeShows) {
   return tvMazeShows.map(show => mapShow(show.show))
 }
 
-function mapShow(tvMazeShow: TvMazeShow['show']) {
+function mapShow(tvMazeShow) {
   return {
     id: tvMazeShow.id,
     title: tvMazeShow.name,

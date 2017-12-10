@@ -12,7 +12,7 @@ fuse
   .bundle('app')
   .sourceMaps(true)
   .target('browser')
-  .instructions(`>boot.ts`)
+  .instructions(`>boot.js`)
   .watch()
 
 fuse.dev(

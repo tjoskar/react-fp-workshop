@@ -1,14 +1,8 @@
-import { Observable } from 'rxjs/Observable'
 import { ajax } from 'rxjs/observable/dom/ajax'
 import { map, filter, switchMap } from 'rxjs/operators'
 import { SUBSCRIBE_TO_SHOW, updateEpisodes } from './show.actions'
 
-type SubscribeToShowAction = {
-  type: string
-  show: { id: number }
-}
-
-export const updateEpisodesEpic = (action$: Observable<SubscribeToShowAction>) =>
+export const updateEpisodesEpic = action$ =>
   action$.pipe(
     filter(action => action.type === SUBSCRIBE_TO_SHOW),
     map(action => action.show),
@@ -17,7 +11,7 @@ export const updateEpisodesEpic = (action$: Observable<SubscribeToShowAction>) =
     )
   )
 
-const getEpisodes$ = (showId: number) =>
+const getEpisodes$ = showId =>
   ajax({
     url: `http://api.tvmaze.com/shows/${showId}?embed=episodes`,
     method: 'GET',

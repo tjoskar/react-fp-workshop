@@ -5,7 +5,7 @@ const initState = {
   searchResult: []
 }
 
-export function searchReducer(state = initState, action): typeof initState {
+export function searchReducer(state = initState, action) {
   switch (action.type) {
     case UPDATE_SEARCH_FIELD:
       return { ...state, value: action.value }

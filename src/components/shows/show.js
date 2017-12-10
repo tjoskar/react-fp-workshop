@@ -12,14 +12,6 @@ export function Show({ show, onClick }) {
   ])
 }
 
-type Episode = {
-  id: number
-  title: string
-  episode: number
-  season: number
-  airdate: string
-}
-
-function nextEpisode(episodes: Episode[] = null) {
+function nextEpisode(episodes = null) {
   return ''
 }
