@@ -23,7 +23,7 @@
     "recompose": "^0.26.0",
     "redux": "^3.7.2",
     "redux-observable": "^0.17.0",
-    "rxjs": "^5.5.2"
+    "rxjs": "^6.0.0"
   },
   "devDependencies": {
     "@types/jest": "21.1.10",
