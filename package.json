@@ -17,7 +17,7 @@
     "ramda": "^0.25.0",
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
-    "react-hyperscript-helpers": "^1.2.0",
+    "react-hyperscript-helpers": "^2.0.0",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
     "recompose": "^0.26.0",
