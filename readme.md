@@ -1,3 +1,5 @@
+# This repo has outdated dependencies, if you are intrested in this repo, let me know (by open an issue) and I will updated its dependencies and some concepts.
+
 # Functional programing with React
 
 Welcome to the fantastic land of pure functions, monads and love.
